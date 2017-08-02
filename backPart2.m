@@ -8,36 +8,34 @@ pd_ = -1/(2*u)*af^2 + vm;
 mu_ =  1/(2*u)*af^2 - vm;
 md_ = -1/(2*u)*af^2 - vm + 1/u*am^2;
 
-% plot(init(2),init(3),'*')
-
 if vf >= pu_ && af >= am  
-    disp('region 6')
+%     disp('region 6')
     t1 = (vf-pu_)/am;
     t2 = (af-am)/u;
     tsq = [t1 t2]; isq = [0 u];
 elseif vf >= pd_ &&  af < am   
-    disp('region 5')
+%     disp('region 5')
     t1 = (vf-pd_)/am;
     t2 = (am-af)/u;
     tsq = [t1 t2]; isq = [0 -u];
 elseif vf >= mu_ && vf < pu_ && af >= am
-    disp('region 1')
+%     disp('region 1')
     t2 = (af-am)/u;
     tsq = [0 t2]; isq = [0 u];
 elseif vf >= mu_ && vf < pd_ && af < am && af >= -am
 %     disp('safe region')
     tsq = [0 0]; isq = [0 0];
 elseif vf >= md_ && vf < pd_ && af < -am
-    disp('region 2')
+%     disp('region 2')
     t2 = (-am-af)/u;
     tsq = [0 t2]; isq = [0 -u];
 elseif vf < mu_ && af >= -am
-    disp('region 3')
+%     disp('region 3')
     t1 = (mu_-vf)/am;
     t2 = (af+am)/u;
     tsq = [t1 t2]; isq = [0 u];
 elseif vf < md_ && af < -am
-    disp('region 4')
+%     disp('region 4')
     t1 = (md_-vf)/am;
     t2 = (-am-af)/u;
     tsq = [t1 t2]; isq = [0 -u];

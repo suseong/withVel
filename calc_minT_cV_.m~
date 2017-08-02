@@ -20,7 +20,7 @@ if ~isempty(tsq)
             inp__ = [inp{idx(k)}(1) 0 -inp{idx(k)}(1) 0 -inp{idx(k)}(1) 0 inp{idx(k)}(1)];
             inp_{k} = [inpFront inp__ inpBack];
             
-            for kk=1:11
+            for kk=1:13
                 tt{k}(kk) = sum(tsq_{k}(1:kk));
             end
         end
