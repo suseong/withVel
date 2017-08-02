@@ -2,8 +2,8 @@
 % clc
 
 %%
-figure(11);clf;
-input = [100 7.2 5];
+figure(12);clf;
+input = [20 10 5];
 kkk = 1;
 % init  = [10*(rand(1,1)-0.5) 20*(rand(1,1)-0.5) 20*(rand(1,1)-0.5)];
 % final = [10*(rand(1,1)-0.5) 20*(rand(1,1)-0.5) 20*(rand(1,1)-0.5)];

@@ -39,10 +39,10 @@ for k = 1:length(t_)
         idx = 10;
     elseif and(t_(k) >= tsq(11), t_(k) < tsq(12))
         idx = 11;
-%     elseif and(t_(k) >= tsq(12), t_(k) < tsq(13))
-%         idx = 12;
-%     elseif and(t_(k) >= tsq(13), t_(k) < tsq(14))
-%         idx = 13;
+    elseif and(t_(k) >= tsq(12), t_(k) < tsq(13))
+        idx = 12;
+    elseif and(t_(k) >= tsq(13), t_(k) < tsq(14))
+        idx = 13;
     end
 
     p0 = p_key(idx); v0 = v_key(idx); a0 = a_key(idx); u = input(idx);

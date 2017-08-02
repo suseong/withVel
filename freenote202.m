@@ -49,6 +49,61 @@ axis equal
 axis([-20 20 -20 20]/2)
 
 
+%% case 6     __
+%          __/  \
+%
+a7_ = simplify(subs(a7,[t3 t5 t6 t7],[am/u 0 0 0]));
+
+chad = simplify(a7_);
+A = simplify(diff(chad,t1));
+B = simplify(chad - A*t1);
+t1_ = -B / A;
+simplify(subs(chad,t1,t1_))
+
+v3_ = simplify(subs(v7,[t1 t3 t5 t6 t7],[t1_ am/u 0 0 0]));
+chad = simplify(v3_ - vf);
+A = simplify(diff(chad,t2));
+B = simplify(chad - A*t2);
+t2_ = -B / A;
+simplify(subs(chad,t2,t2_))
+
+x7_ = simplify(subs(x7,[t1 t2 t3 t5 t6 t7],[t1_ t2_ am/u 0 0 0]));
+chad = simplify(x7_ - xf);
+A = simplify(diff(chad,t4));
+B = simplify(chad - A*t4);
+t4_ = -B / A;
+simplify(subs(chad,t4,t4_))
+
+%% case 5   __
+%          /  \__
+%
+a7_ = simplify(subs(a7,[t3 t5 t6 t7],[am/u 0 0 0]));
+
+chad = simplify(a7_);
+A = simplify(diff(chad,t1));
+B = simplify(chad - A*t1);
+t1_ = -B / A;
+simplify(subs(chad,t1,t1_))
+
+v3_ = simplify(subs(v7,[t1 t3 t5 t6 t7],[t1_ am/u 0 0 0]));
+chad = simplify(v3_ - vf);
+A = simplify(diff(chad,t2));
+B = simplify(chad - A*t2);
+t2_ = -B / A;
+simplify(subs(chad,t2,t2_))
+
+x7_ = simplify(subs(x7,[t1 t2 t3 t5 t6 t7],[t1_ t2_ am/u 0 0 0]));
+chad = simplify(x7_ - xf);
+A = simplify(diff(chad,t4));
+B = simplify(chad - A*t4);
+t4_ = -B / A;
+simplify(subs(chad,t4,t4_))
+
+
+
+
+
+
 
 %% case 1   __
 %          /  \___                1 3 5 7 2 6 4

@@ -9,7 +9,7 @@ final = [10*(rand(1,1)-0.5) 20*(rand(1,1)-0.5) 20*(rand(1,1)-0.5)];
 figure(13);clf;
 hold on
 
-input = [100 2 5];
+input = [20 2 5];
 acc = flip(0:0.1:10);
 tf = [];
 for k=1:length(acc)
@@ -32,7 +32,7 @@ hold on
 vm = flip(0.5:0.1:5);
 
 for k = 1:length(vm)
-    input = [100 3 vm(k)];
+    input = [20 3 vm(k)];
     [inp_,tt_] = calc_minT_cV_(init,final,input);
     if ~isempty(inp_)
         for kk = 1:length(inp_)
