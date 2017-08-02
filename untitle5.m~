@@ -1,0 +1,76 @@
+% 
+% 
+% u = 20; am = 5; vm = 5;
+% a1 = -10:0.1:-am;
+% a2 = -am:0.1:10;
+% a3 = -10:0.1:am;
+% a4 =  am:0.1:10;
+% 
+% pu =  1/(2*u)*a1.^2 + vm - 1/u*am^2;
+% pd = -1/(2*u)*a2.^2 + vm;
+% mu =  1/(2*u)*a3.^2 - vm;
+% md = -1/(2*u)*a4.^2 - vm + 1/u*am^2;
+% 
+% for k=1:1000
+% 
+%     figure(1);clf
+%     hold on
+%     box on
+%     grid on
+%     plot(pu,a1,'linewidth',3)
+%     plot(pd,a2,'linewidth',3)
+%     plot(mu,a3,'linewidth',3)
+%     plot(md,a4,'linewidth',3)
+%     plot([-10 vm-1/2/u*am^2],[am am])
+%     plot([-vm+1/2/u*am^2 10],[-am -am])
+% 
+%     init = 20*(rand(3,1)-0.5);
+%     [sts,tsq,isq] = frontPart2(init,[0 0 0],[u am vm]);
+% 
+%     plot(sts{1}(2),sts{1}(3),'ok')
+%     plot(sts{2}(2),sts{2}(3),'sqk')
+%     plot(sts{3}(2),sts{3}(3),'*k')
+%     
+%     axis equal
+%     axis([-10 10 -10 10])
+%     keyboard
+% end
+
+%%
+u = 20; am = 5; vm = 5;
+a2 = -10:0.1:am;
+a1 =  am:0.1:10;
+a4 = -10:0.1:-am;
+a3 = -am:0.1:10;
+
+pu =  1/(2*u)*a1.^2 + vm - 1/u*am^2;
+pd = -1/(2*u)*a2.^2 + vm;
+mu =  1/(2*u)*a3.^2 - vm;
+md = -1/(2*u)*a4.^2 - vm + 1/u*am^2;
+
+for k=1:1000
+
+    figure(1);clf
+    hold on
+    box on
+    grid on
+    plot(pu,a1,'linewidth',3)
+    plot(pd,a2,'linewidth',3)
+    plot(mu,a3,'linewidth',3)
+    plot(md,a4,'linewidth',3)
+    plot(-[-10 vm-1/2/u*am^2],[am am],'linewidth',3)
+    plot(-[-vm+1/2/u*am^2 10],[-am -am],'linewidth',3)
+
+    init = 20*(rand(3,1)-0.5);
+    [sts,tsq,isq] = baPart2(init,[0 0 0],[u am vm]);
+
+%     [sts,tsq,isq] = frontPart2(init,[0 0 0],[u am vm]);
+% 
+%     plot(sts{1}(2),sts{1}(3),'ok')
+%     plot(sts{2}(2),sts{2}(3),'sqk')
+%     plot(sts{3}(2),sts{3}(3),'*k')
+    
+    axis equal
+    axis([-10 10 -10 10])
+    keyboard
+end

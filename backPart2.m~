@@ -1,0 +1,63 @@
+function [frontStates,tsq,isq] = backPart2(init,final,input)
+
+x0 = init(1); v0 = init(2); a0 = init(3);
+u = input(1); am = input(2); vm = input(3);
+
+pu_ =  1/(2*u)*a0^2 + vm - 1/u*am^2;
+pd_ = -1/(2*u)*a0^2 + vm;
+mu_ =  1/(2*u)*a0^2 - vm;
+md_ = -1/(2*u)*a0^2 - vm + 1/u*am^2;
+
+plot(init(2),init(3),'*')
+
+if v0 >= pu_ && a0 >= am  
+%     disp('region 6')
+    t1 = (vf-pu_)/am;
+    t2 = (af-am)/u;
+    tsq = [t1 t2]; isq = [0 u];
+elseif v0 >= pd_ &&  a0 < am   
+%     disp('region 5')
+    t1 = (vf-pd_)/am;
+    t2 = (am-af)/u;
+    tsq = [t1 t2]; isq = [0 -u];
+elseif v0 >= mu_ && v0 < pu_ && a0 >= am
+%     disp('region 1')
+    t2 = (af-am)/u;
+    tsq = [0 t2]; isq = [0 u];
+elseif v0 >= mu_ && v0 < pd_ && a0 < am && a0 >= -am
+%     disp('safe region')
+    tsq = [0 0]; isq = [0 0];
+elseif v0 >= md_ && v0 < pd_ && a0 < -am
+%     disp('region 2')
+    t2 = (-am-af)/u;
+    tsq = [0 t2]; isq = [0 -u];
+elseif v0 < mu_ && a0 >= -am
+%     disp('region 3')
+    t1 = (mu_-vf)
+elseif v0 < md_ && a0 < -am
+%     disp('region 4')
+
+else
+    disp('wrong')
+    keyboard
+end
+
+% u1 = isq(1); u2 = isq(2);
+% t1 = tsq(1); t2 = tsq(2);
+% 
+% a1 = a0 + u1*t1;
+% v1 = v0 + a0*t1 + 1/2*u1*t1^2;
+% x1 = x0 + v0*t1 + 1/2*a0*t1^2 + 1/6*u1*t1^3;
+% 
+% a2 = a1 + u2*t2;
+% v2 = v1 + a1*t2 + 1/2*u2*t2^2;
+% x2 = x1 + v1*t2 + 1/2*a1*t2^2 + 1/6*u2*t2^3;
+% 
+% 
+% frontStates{1} = init;
+% frontStates{2} = [x1 v1 a1];
+% frontStates{3} = [x2 v2 a1];
+
+frontStates = []; tsq = []; isq = [];
+
+end
