@@ -54,6 +54,11 @@ else
     v6 = v5 + a5*t6;
     v7 = v6 + a6*t7 + 1/2*u*t7^2;
     
+    t3_ = 0:0.1:t3;
+    for k=1:length(t3_)
+       v3_(k) = v2 + a2*t3_(k) - 1/2*u*t3_(k)^2; 
+    end
+    
     x1 = x0 + v0*t1 + 1/2*a0*t1^2 + 1/6*u*t1^3;
     x2 = x1 + v1*t2 + 1/2*a1*t2^2;
     x3 = x2 + v2*t3 + 1/2*a2*t3^2 - 1/6*u*t3^3;
@@ -77,6 +82,9 @@ elseif abs(x7 - xf) > 1e-2
     pos = []; vel = []; acc = [];    
 elseif abs(a7 - af) > 1e-2
     pos = []; vel = []; acc = [];    
+elseif max(abs(v3_)) > abs(input(3))+1e-2
+    pos = []; vel = []; acc = [];
 end
-    
+
+
 end

@@ -8,13 +8,11 @@ function [tsqOut,errOut] = bisection7(init,final,input,funcNum)
     k = 0;
 
     if funcNum == 9
-        timeTrials = 0:0.01:10;
-    elseif funcNum == 12
-        timeTrials = 0:0.005:2*input(2)/input(1);
+        timeTrials = 0:0.01:3;
     else
-        timeTrials = 0:0.005:2*input(2)/input(1);
+        timeTrials = 0:0.002:input(1)/input(2);
     end
-
+    
     errTrials = zeros(length(timeTrials),1);
 
     for k=1:length(timeTrials)

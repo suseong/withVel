@@ -2,57 +2,65 @@ function [tsq,inp,profileType] = calc_mintime_traj_7(init,final,input)
 
 isFound = 0;
 input_p = [input(1) input(2) input(3)];
+chad = 1;
+tsq = [];
+inp = [];
 
 for k=1:4
     funcName = getFuncName7(k);
     calc_xf = str2func(funcName);
-    inp = input_p;
-    tsq_ = calc_xf(init,final,inp);
+%     inp = input_p;
+    tsq_ = calc_xf(init,final,input);
     if max(tsq_) > 0
-       [p,v,a] = calc_pva(init,final,inp,tsq_,1);
-       if ~isempty(p)
-           isFound = 1;
-           tsq = tsq_;
-           profileType = k;
+        [p,v,a] = calc_pva(init,final,input,tsq_,1);
+        if ~isempty(p)
+%            isFound = 1;
+%            tsq = tsq_;
+%            profileType = k;
+            tsq{chad} = tsq_;
+            inp{chad} = input;
+            profileType{chad} = k;
+            chad = chad + 1;
        end
     end
-    if isFound
-        break;
-    end
-    if isFound
-        break;
-    end
+%     if isFound
+%         break;
+%     end
+%     if isFound
+%         break;
+%     end
 end
 
 if isFound == 0
-    chad = 1;
-    tsq = [];
-    inp = [];
     profileType = [];
 
     for k=1:4
         funcName = getFuncName7(k);
         calc_xf = str2func(funcName);
-        inp = -input_p;
-        tsq_ = calc_xf(init,final,inp);
+%         inp = -input_p;
+        tsq_ = calc_xf(init,final,-input);
         if max(tsq_) > 0
-            [p,v,a] = calc_pva(init,final,inp,tsq_,1);
+            [p,v,a] = calc_pva(init,final,-input,tsq_,1);
             if ~isempty(p)
-                isFound = 1;
-                tsq = tsq_;
-                profileType = k;
+%               isFound = 1;
+%               tsq = tsq_;
+%               profileType = k;
+                tsq{chad} = tsq_;
+                inp{chad} = -input;
+                profileType{chad} = k;
+                chad = chad + 1;
             end
         end
-        if isFound
-            break;
-        end
-        if isFound
-            break;
-        end
+%         if isFound
+%             break;
+%         end
+%         if isFound
+%             break;
+%         end
     end
  
     if isFound == 0
-        inp = [];
+%         inp = [];
         for k=9:12
             [tsqOut,errOut] = bisection7(init,final,input,k);
             for j=1:length(tsqOut)

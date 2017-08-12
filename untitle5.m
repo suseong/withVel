@@ -124,7 +124,7 @@ plot(sts{3}(2),sts{3}(3),'xk')
 plot(sts{4}(2),sts{4}(3),'*k')
 
 %%
-u = 20; am = 7; vm = 4;
+u = 20; am = 6.5; vm = 5;
 a1 = -10:0.1:-am;
 a2 = -am:0.1:10;
 a3 = -10:0.1:am;
@@ -161,12 +161,12 @@ plot([-vm+1/2/u*am^2 vm-1/2/u*am^2],[am am],'k','linewidth',2)
 plot(flip(-[vm+1/2/u*am^2 10]),[-am -am],'k','linewidth',2)
 plot([-vm+1/2/u*am^2 vm-1/2/u*am^2],[-am -am],'k','linewidth',2)
 
-for kk = 1:1000000
-final = 20*(rand(3,1)-0.5); 
-[sts,tsq,isq] = backPart3([0 0 0],final,[u am vm]);
-aaa = sts{1};
-% plot(sts{1}(2),sts{1}(3),'sqk')
-% plot(sts{2}(2),sts{2}(3),'dk')
-% plot(sts{3}(2),sts{3}(3),'xk')
-% plot(sts{4}(2),sts{4}(3),'*k')
-end
+% for kk = 1:1000000
+% final = 20*(rand(3,1)-0.5); 
+% [sts,tsq,isq] = backPart3([0 0 0],final,[u am vm]);
+% aaa = sts{1};
+% % plot(sts{1}(2),sts{1}(3),'sqk')
+% % plot(sts{2}(2),sts{2}(3),'dk')
+% % plot(sts{3}(2),sts{3}(3),'xk')
+% % plot(sts{4}(2),sts{4}(3),'*k')
+% end

@@ -57,7 +57,7 @@ elseif vf >= md && vf < pd && af < -am
     t1 = (-am-af)/u;
     tsq = [t1 0 0]; isq = [-u 0 0];    
     
-elseif vf < ppu && vf >= pu && vf >= pd
+elseif vf < ppu && vf >= pu && vf >= pd && af > 0
 %     disp('region 8')
     a_ = sqrt(u*(vm-vf+1/2/u*af^2));
     t1 = (af-a_)/u;

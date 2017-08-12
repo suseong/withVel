@@ -24,7 +24,7 @@ a0 = init(3); af = final(3);
 % v3 = (- a0^2 + 2*am^2 + 2*t2*u*am + 2*u*v0)/(2*u);
 % 
 % % if or(min(tsq_) < -1e-3, abs(v3) > abs(vm))
-% %     tsq = [0 0 0 0 0 0 0];
+% %     tsq = [0 0 0 0 0 0 0];4
 % %     err = -100;
 % % else
 %     tsq = tsq_;

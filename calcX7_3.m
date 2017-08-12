@@ -10,7 +10,7 @@ x0 = init(1); xf = final(1);
 v0 = init(2); vf = final(2);
 a0 = init(3); af = final(3);
 
-t5sqr = (-2*u*vf + af^2 + 2*vm*u)/(2*u^2);
+t5sqr = clean((-2*u*vf + af^2 + 2*vm*u)/(2*u^2),1e-4);
 
 if t5sqr < 0
     tsq = [0 0 0 0 0 0 0];
